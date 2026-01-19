@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <main class="container">
+        <header class="header">
+            <h1>Weather.io</h1>
+            <p>Real-time weather data for any location</p>
+        </header>
+
+        <section class="search-section glass-panel">
+            <div class="input-group">
+                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <button id="search-btn" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <ul id="suggestions-list" class="suggestions-list hidden"></ul>
+            </div>
+            <div id="error-message" class="error-message hidden"></div>
+        </section>
+
+        <div id="loading-spinner" class="spinner-container hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <section id="weather-card" class="weather-card glass-panel hidden">
+            <div class="weather-header">
+                <h2 id="city-name">City Name</h2>
+                <p id="date">Monday, 12 Jan</p>
+            </div>
+
+            <div class="weather-main">
+                <div class="weather-icon-container">
+                    <div id="weather-icon" class="weather-icon"></div>
+                    <!-- We will use text or simple CSS shapes/SVG for icons to keep it vanilla or fetch from open-meteo wmo codes -->
+                    <p id="weather-desc">Clear Sky</p>
+                </div>
+                <div class="temperature-container">
+                    <span id="temperature">24</span>
+                    <span class="unit">°C</span>
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="label">Feels Like</span>
+                    <span class="value" id="feels-like">26°C</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Humidity</span>
+                    <span class="value" id="humidity">45%</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Wind</span>
+                    <span class="value" id="wind-speed">12 km/h</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
